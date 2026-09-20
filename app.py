@@ -1,6 +1,7 @@
 
 import streamlit as st
 import pandas as pd
+import base64
 from pathlib import Path
 
 from services.data_service import load_demo_data, process_upload, data_quality
@@ -14,6 +15,7 @@ from services.db_service import save_event
 
 BASE = Path(__file__).parent
 ASSET = BASE / "assets" / "akensya_logo.png"
+LOGO_DATA = base64.b64encode(ASSET.read_bytes()).decode("utf-8")
 
 st.set_page_config(
     page_title="Akensya | Decision Intelligence",
@@ -80,7 +82,7 @@ def money(v):
 def topbar(title, subtitle):
     st.markdown(
         f"""<div class="ak-top">
-        <img src="{ASSET.as_posix()}" alt="Akensya logo"/>
+        <img src="data:image/png;base64,{LOGO_DATA}" alt="Akensya logo"/>
         <div><h1>{title}</h1><p>{subtitle}</p></div>
         </div>""",
         unsafe_allow_html=True,
