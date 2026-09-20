@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.streamlit/secrets.toml
+akensya_events.db
+models/*.pkl
+.DS_Store
