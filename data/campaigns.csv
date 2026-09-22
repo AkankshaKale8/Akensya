@@ -1,5 +1,0 @@
-campaign_id,campaign_name,channel,spend,impressions,clicks,conversions,revenue,date
-CP01,Summer Sale,Google,500000,1500000,78000,8200,2000000,2026-08-01
-CP02,Retargeting,Meta,200000,700000,41000,4800,1100000,2026-08-01
-CP03,Brand Awareness,Display,300000,2200000,33000,3400,600000,2026-08-01
-CP04,Retention,Email,100000,500000,42000,6100,750000,2026-08-01
