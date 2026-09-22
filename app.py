@@ -164,9 +164,6 @@ if not st.session_state.authenticated:
             else:
                 ok, message = sign_up(new_email, new_password, company)
                 if ok:
-                    if st.session_state.get("user_id"):
-                        from services.db_service import save_profile
-                        save_profile(st.session_state.user_id, new_email.strip().lower(), company.strip())
                     st.success(message)
                 else:
                     st.error(message)
