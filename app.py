@@ -203,7 +203,7 @@ elif page == "Predictive Analytics":
     t1,t2,t3 = st.tabs(["Revenue Forecast","Churn Prediction","Model Notes"])
     with t1:
         fc = revenue_forecast(data["transactions"])
-        st.line_chart(fc.set_index("date"))
+        st.line_chart(fc)
         st.success("Forecast is generated from historical sample data. Replace with a trained forecasting model from Colab for production.")
     with t2:
         churn = churn_predictions(data)
