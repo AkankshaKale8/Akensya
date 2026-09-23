@@ -118,6 +118,7 @@ st.sidebar.divider()
 
 nav = {
     "🏠 Executive Dashboard": "Executive Dashboard",
+    "🚀 Onboarding": "Onboarding",
     "🗄️ Data Hub": "Data Hub",
     "📈 Descriptive Analytics": "Descriptive Analytics",
     "🔮 Predictive Analytics": "Predictive Analytics",
