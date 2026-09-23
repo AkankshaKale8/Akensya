@@ -69,6 +69,13 @@ if "data" not in st.session_state:
     st.session_state.data = load_demo_data(BASE/"data")
 if "company" not in st.session_state:
     st.session_state.company = "DemoBrand"
+if "company_profile" not in st.session_state:
+    st.session_state.company_profile = {
+        "industry": "D2C",
+        "size": "1–50",
+        "goals": ["Increase Revenue", "Improve Campaign ROI"],
+        "stack": stack
+    }
 if "authenticated" not in st.session_state:
     st.session_state.authenticated = True
 if "events" not in st.session_state:
@@ -309,11 +316,29 @@ elif page == "Onboarding":
         size = st.selectbox("Company Size",["1–50","51–250","251–1000","1000+"])
         goals = st.multiselect("Marketing Objectives",["Increase Revenue","Improve Retention","Improve Campaign ROI","Increase Conversion","Reduce Churn","Improve Sustainability"],["Increase Revenue","Improve Campaign ROI"])
         stack = st.multiselect("Marketing Stack",["Salesforce","HubSpot","Google Analytics","Google Ads","Meta Ads","Shopify"])
-        if st.form_submit_button("Save & Continue", type="primary"):
-            st.session_state.company = company or "DemoBrand"
-            save_event("onboarding", st.session_state.company, {"industry":industry,"size":size,"goals":goals,"stack":stack})
-            st.success("Onboarding saved. Continue to Data Hub.")
+      if st.form_submit_button("Save & Continue", type="primary"):
+    st.session_state.company = company or "DemoBrand"
 
+    st.session_state.company_profile = {
+        "industry": industry,
+        "size": size,
+        "goals": goals,
+        "stack": stack
+    }
+
+    save_event(
+        "onboarding",
+        st.session_state.company,
+        {
+            "industry": industry,
+            "size": size,
+            "goals": goals,
+            "stack": stack
+        }
+    )
+
+    st.success("Onboarding saved successfully.")
+    st.info("Your company profile is now available across this Akensya session.")
 elif page == "Settings":
     topbar("Settings", "Application configuration and deployment information.")
     st.subheader("Architecture")
